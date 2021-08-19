@@ -1,3 +1,13 @@
 micronaut:
   application:
     name: pixRest
+
+grpc:
+  client:
+    plaintext: true
+    max-retry-attempts: 10
+  channels:
+    keymanager:
+      address: '${KEYMANAGER_HOST:localhost}:${KEYMANAGER_PORT:50051}'
+      plaintext: true
+      max-retry-attempts: 5
