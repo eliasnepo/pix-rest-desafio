@@ -11,7 +11,7 @@ import io.micronaut.http.annotation.PathVariable
 class DetailsKeyController(private val grpcClient: DetailsKeyServiceGrpc.DetailsKeyServiceBlockingStub) {
 
     @Get("/{pixId}/client/{clientId}")
-    fun keyDetails(@PathVariable pixId: String, @PathVariable clientId: String) : HttpResponse<Any> {
+    fun keyDetails(@PathVariable pixId: String, @PathVariable clientId: String) : HttpResponse<DetailsReponse> {
         val requestGrpc = KeyDetailRequest.newBuilder()
             .setPixId(KeyDetailRequest.PixIdAndClientId.newBuilder()
                 .setPixId(pixId)
